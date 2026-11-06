@@ -32,7 +32,7 @@ jobs:
           curl -fsSL "https://raw.githubusercontent.com/getcaplo/homebrew-tap/$CAPLO_VERSION/install.sh" | sh
           "$CAPLO_INSTALL_DIR/caplo" --version | grep -Fx "caplo ${CAPLO_VERSION#v}"
           CAPLO_CONFIG_DIR="$RUNNER_TEMP/empty-config" "$CAPLO_INSTALL_DIR/caplo" config get api-url | grep -Fx https://api.caplo.si
-      - uses: Homebrew/actions/setup-homebrew@master
+      - uses: Homebrew/actions/setup-homebrew@63a2d4d8d4193eab3e62b1b782ff3ab8408f5b29 # main
       - name: Install with Homebrew
         shell: bash
         run: |
