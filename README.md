@@ -18,10 +18,12 @@ Update with `brew update && brew upgrade getcaplo/tap/caplo`. Uninstall with `br
 Requires `curl`, `tar`, and `sha256sum` (Linux) or `shasum` (macOS). Ubuntu: `sudo apt-get install curl ca-certificates tar coreutils`.
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/getcaplo/homebrew-tap/main/install.sh | sh
+curl -fsSL https://cli.caplo.si/install.sh | sh
 export PATH="$HOME/.local/bin:$PATH"
 caplo --version
 ```
+
+The custom domain is served by GitHub Pages from this public repository. Release binaries remain on GitHub Releases. The [raw GitHub installer](https://raw.githubusercontent.com/getcaplo/homebrew-tap/main/install.sh) remains available as a fallback.
 
 The installer resolves the latest release once, downloads the matching versioned archive and SHA-256 manifest over HTTPS, and verifies it before atomically installing `~/.local/bin/caplo`. It does not invoke sudo or edit shell configuration. Add the PATH line to your shell profile to keep it.
 
