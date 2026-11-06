@@ -1,0 +1,42 @@
+name: Installation
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Stable release tag to test
+        required: true
+        default: v0.1.0
+permissions:
+  contents: read
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, ubuntu-24.04-arm, macos-15, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    env:
+      CAPLO_VERSION: ${{ inputs.version || github.event.release.tag_name }}
+      HOMEBREW_NO_AUTO_UPDATE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Installer regression cases
+        run: python3 -m unittest discover -s tests -v
+      - name: Install versioned release with curl
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CAPLO_INSTALL_DIR="$RUNNER_TEMP/caplo-bin"
+          curl -fsSL "https://raw.githubusercontent.com/getcaplo/homebrew-tap/$CAPLO_VERSION/install.sh" | sh
+          "$CAPLO_INSTALL_DIR/caplo" --version | grep -Fx "caplo ${CAPLO_VERSION#v}"
+          CAPLO_CONFIG_DIR="$RUNNER_TEMP/empty-config" "$CAPLO_INSTALL_DIR/caplo" config get api-url | grep -Fx https://api.caplo.si
+      - uses: Homebrew/actions/setup-homebrew@master
+      - name: Install with Homebrew
+        shell: bash
+        run: |
+          set -euo pipefail
+          brew install getcaplo/tap/caplo
+          brew test getcaplo/tap/caplo
+          caplo --version | grep -Fx "caplo ${CAPLO_VERSION#v}"
