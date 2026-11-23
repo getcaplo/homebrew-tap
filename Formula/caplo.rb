@@ -1,27 +1,27 @@
 class Caplo < Formula
   desc "Command-line interface for Caplo agents, tools, and workspaces"
   homepage "https://app.caplo.si"
-  version "0.4.1"
+  version "0.5.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/getcaplo/homebrew-tap/releases/download/v0.4.1/caplo_0.4.1_darwin_arm64.tar.gz"
-      sha256 "77ebd1daec517923074d51a06e2b4ce45c4b37b260e2c1343d08d89de64741c0"
+      url "https://github.com/getcaplo/homebrew-tap/releases/download/v0.5.0/caplo_0.5.0_darwin_arm64.tar.gz"
+      sha256 "acddb5b671c8476bf3fe860523ada741a123c396fbc36d8a0ff6717a9fad982a"
     end
     on_intel do
-      url "https://github.com/getcaplo/homebrew-tap/releases/download/v0.4.1/caplo_0.4.1_darwin_amd64.tar.gz"
-      sha256 "663bcf4e08018e3c49d3c6dcde624e15f600af3071687332284fd699509d4edc"
+      url "https://github.com/getcaplo/homebrew-tap/releases/download/v0.5.0/caplo_0.5.0_darwin_amd64.tar.gz"
+      sha256 "5626ea5453f7564f0cb9ca0b22dec69d9998e678a0d33d8d1ef45e462d1e5418"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/getcaplo/homebrew-tap/releases/download/v0.4.1/caplo_0.4.1_linux_arm64.tar.gz"
-      sha256 "0114c4ad26eca79f8008bb37fd53e91702ef9361332ae4a118242bd14f8189b8"
+      url "https://github.com/getcaplo/homebrew-tap/releases/download/v0.5.0/caplo_0.5.0_linux_arm64.tar.gz"
+      sha256 "d9f338019e79ac88203ac1b0ae221e03a02f808b1b5e9794cb7157a750ffc500"
     end
     on_intel do
-      url "https://github.com/getcaplo/homebrew-tap/releases/download/v0.4.1/caplo_0.4.1_linux_amd64.tar.gz"
-      sha256 "e6d7d14e0b36106183757e5ee8948b7f60dd33ba665d9a66e12a04a9f4c6b317"
+      url "https://github.com/getcaplo/homebrew-tap/releases/download/v0.5.0/caplo_0.5.0_linux_amd64.tar.gz"
+      sha256 "6351223834a4d621d76d8bd012e7532e6eb6c0fe29e3fc9de8d4d7bf48aeb41c"
     end
   end
 
